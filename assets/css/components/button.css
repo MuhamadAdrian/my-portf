@@ -1,0 +1,80 @@
+/* General Styles */
+.v-app-button {
+  @apply font-bold text-sm transition-all relative;
+}
+
+/* Accent Styles */
+.v-app-button-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(10px, 10px);
+  border-width: 1px;
+  border-style: solid;
+  transition: transform 0.3s;
+  z-index: -1;
+}
+
+.v-app-button-accent-primary::before {
+  border-color: white;
+}
+
+.v-app-button-accent-secondary::before {
+  border-color: #749960;
+}
+
+.v-app-button-accent:hover::before {
+  transform: translate(0, 0);
+}
+
+.v-app-button-accent::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+/* Color Styles */
+.v-app-button-primary {
+  @apply bg-primary text-white;
+}
+
+.v-app-button-primary:hover {
+  @apply bg-white text-primaryDarken transform scale-105;
+}
+
+.v-app-button-secondary {
+  @apply bg-secondary text-primaryDarken;
+}
+
+.v-app-button-secondary:hover {
+  @apply bg-primary text-secondary transform scale-105;
+}
+
+.v-app-button-secondary:hover::before {
+  border-color: #749960;
+}
+
+/* Size Styles */
+.v-app-button-sm {
+  @apply px-[2rem] py-[0.8rem] rounded-[1rem];
+}
+
+.v-app-button-sm::before {
+  border-radius: 15px;
+}
+
+.v-app-button-md {
+  @apply px-[3rem] py-[1.2rem] rounded-[1.2rem];
+}
+
+.v-app-button-md::before {
+  border-radius: 20px;
+}
