@@ -6,12 +6,6 @@ body {
   @apply bg-mainBackground;
 }
 
-.reveal-char .char,
-.reveal-word .word,
-.reveal-line .line {
-  @apply transform translate-y-40 transition-transform duration-500;
-}
-
-.reveal {
+.split {
   clip-path: polygon(0 0, 100% 0, 100% 150%, 0% 100%);
 }

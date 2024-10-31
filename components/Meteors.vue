@@ -1,8 +1,6 @@
 <script setup lang="ts">
-const { $gsap } = useNuxtApp()
-
-onMounted(() => {
-  $gsap.from('.meteor', {
+const animation = {
+  from: {
     y: -200,
     transformOrigin: 'top',
     opacity: 0,
@@ -10,47 +8,31 @@ onMounted(() => {
     duration: 1,
     delay: 0.2,
     ease: 'power.in',
-    // onComplete: () => {
-    //   $gsap.utils.toArray('.meteor').forEach((meteor: any, index: number) => {
-    //     const scrollFactor = 1 + index * 0.1 // Unique scroll speed factor for each meteor
-
-    //     // Set up the parallax scroll effect from the current position
-    //     $gsap.to(meteor, {
-    //       // Adjust distance for a smooth parallax effect
-    //       ease: 'none', // Linear ease for consistent speed during scroll
-    //       scrollTrigger: {
-    //         trigger: '.meteor-container',
-    //         start: 'top bottom',
-    //         scrub: true,
-    //         end: 'bottom top', // Adjust to control the parallax range
-    //         opacity: `-=${index * 0.1}`,
-    //       },
-    //     })
-    //   })
-    // },
-  })
-})
+  },
+}
 </script>
 
 <template>
-  <div class="mx-auto px-10 meteor-container md:w-full absolute md:top-[15%] top-60 w-[180%] h-full left-1/2 transform -translate-y-1/2 -translate-x-1/2" style="z-index: -1;">
+  <div class="mx-auto px-10 meteor-container md:w-full absolute md:top-[15%] top-60 w-svw h-full left-1/2 transform -translate-y-1/2 -translate-x-1/2" style="z-index: -1;">
     <svg width="100%" height="100%" viewBox="0 0 1235 795" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       <g filter="url(#filter0_f_70_37)">
-        <rect x="8" class="meteor" y="273" width="41" height="271" rx="20.5" fill="url(#paint0_linear_70_37)" />
-        <rect x="1202" class="meteor" y="469" width="41" height="271" rx="20.5" fill="url(#paint1_linear_70_37)" />
-        <rect x="848" class="meteor" y="532" width="41" height="271" rx="20.5" fill="url(#paint2_linear_70_37)" />
-        <rect x="86" class="meteor" y="10" width="27" height="419" rx="13.5" fill="url(#paint3_linear_70_37)" />
-        <rect x="970" class="meteor" y="50" width="27" height="419" rx="13.5" fill="url(#paint4_linear_70_37)" />
-        <rect x="145" class="meteor" y="434" width="57" height="317" rx="28.5" fill="url(#paint5_linear_70_37)" />
-        <rect x="49" class="meteor" y="643" width="57" height="137" rx="28.5" fill="url(#paint6_linear_70_37)" />
-        <rect x="991" class="meteor" y="613" width="57" height="137" rx="28.5" fill="url(#paint7_linear_70_37)" />
-        <rect x="1098" class="meteor" y="393" width="57" height="137" rx="28.5" fill="url(#paint8_linear_70_37)" />
-        <rect x="261" class="meteor" y="166" width="32" height="239" rx="16" fill="url(#paint9_linear_70_37)" />
-        <rect x="525" class="meteor" y="305" width="32" height="239" rx="16" fill="url(#paint10_linear_70_37)" />
-        <rect x="1095" class="meteor" y="8" width="32" height="239" rx="16" fill="url(#paint11_linear_70_37)" />
-        <rect x="729" class="meteor" y="393" width="32" height="239" rx="16" fill="url(#paint12_linear_70_37)" />
-        <rect x="388" class="meteor" y="378" width="32" height="239" rx="16" fill="url(#paint13_linear_70_37)" />
-        <rect x="837" class="meteor" y="202" width="32" height="239" rx="16" fill="url(#paint14_linear_70_37)" />
+        <Animate :creative-animation="animation">
+          <rect x="8" class="meteor" y="273" width="41" height="271" rx="20.5" fill="url(#paint0_linear_70_37)" />
+          <rect x="1202" class="meteor" y="469" width="41" height="271" rx="20.5" fill="url(#paint1_linear_70_37)" />
+          <rect x="848" class="meteor" y="532" width="41" height="271" rx="20.5" fill="url(#paint2_linear_70_37)" />
+          <rect x="86" class="meteor" y="10" width="27" height="419" rx="13.5" fill="url(#paint3_linear_70_37)" />
+          <rect x="970" class="meteor" y="50" width="27" height="419" rx="13.5" fill="url(#paint4_linear_70_37)" />
+          <rect x="145" class="meteor" y="434" width="57" height="317" rx="28.5" fill="url(#paint5_linear_70_37)" />
+          <rect x="49" class="meteor" y="643" width="57" height="137" rx="28.5" fill="url(#paint6_linear_70_37)" />
+          <rect x="991" class="meteor" y="613" width="57" height="137" rx="28.5" fill="url(#paint7_linear_70_37)" />
+          <rect x="1098" class="meteor" y="393" width="57" height="137" rx="28.5" fill="url(#paint8_linear_70_37)" />
+          <rect x="261" class="meteor" y="166" width="32" height="239" rx="16" fill="url(#paint9_linear_70_37)" />
+          <rect x="525" class="meteor" y="305" width="32" height="239" rx="16" fill="url(#paint10_linear_70_37)" />
+          <rect x="1095" class="meteor" y="8" width="32" height="239" rx="16" fill="url(#paint11_linear_70_37)" />
+          <rect x="729" class="meteor" y="393" width="32" height="239" rx="16" fill="url(#paint12_linear_70_37)" />
+          <rect x="388" class="meteor" y="378" width="32" height="239" rx="16" fill="url(#paint13_linear_70_37)" />
+          <rect x="837" class="meteor" y="202" width="32" height="239" rx="16" fill="url(#paint14_linear_70_37)" />
+        </Animate>
       </g>
       <defs>
         <filter id="filter0_f_70_37" x="0" y="0" width="1251" height="811" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
