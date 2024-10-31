@@ -49,19 +49,19 @@ onMounted(async () => {
     })
   }
 
-  // setTimeout(() => {
-  animate({
-    targets: elements.value!,
-    duration,
-    stagger,
-    animation,
-    scroll,
-    scrollBehaviour,
-    ease,
-    delay,
-    creativeAnimation,
-  })
-  // }, 0.0000001)
+  setTimeout(() => {
+    animate({
+      targets: elements.value!,
+      duration,
+      stagger,
+      animation,
+      scroll,
+      scrollBehaviour,
+      ease,
+      delay,
+      creativeAnimation,
+    })
+  }, 1)
 })
 </script>
 
