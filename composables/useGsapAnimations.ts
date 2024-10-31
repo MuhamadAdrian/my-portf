@@ -77,6 +77,7 @@ export default function useGsapAnimations() {
     }
 
     else {
+      scrollTrigger.trigger = animationTargetEl.value
       if (creativeAnimation.from && creativeAnimation.to) {
         $gsap.fromTo(animationTargetEl.value, creativeAnimation.from, !scroll ? creativeAnimation.to : { ...creativeAnimation.to, scrollTrigger })
       }
