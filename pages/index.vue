@@ -13,7 +13,7 @@ const highlightProjects = ref<HighlightProject[]>([
 </script>
 
 <template>
-  <section class="text-center text-white md:mt-40 mt-20 z-10">
+  <section id="#" class="text-center text-white md:mt-40 mt-20 z-10">
     <Animate animation="split-word" :duration="600" :stagger="0.1">
       <h1 class="lg:text-8xl md:text-6xl text-4xl font-bold">
         Bring More Values
@@ -33,7 +33,7 @@ const highlightProjects = ref<HighlightProject[]>([
     <Meteors />
   </section>
 
-  <section class="mt-10">
+  <section class="mt-10 transition-all">
     <Animate scroll animation="split-word" :delay="0" :scroll-behaviour="{ start: 'top 100%' }" :duration="900">
       <h2 class="font-bold md:text-[32px] sm:text-2xl text-lg text-white md:mb-6 mb-4">
         Highlighted Project

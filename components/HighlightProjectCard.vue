@@ -12,7 +12,7 @@ const animationImage = ref({
 </script>
 
 <template>
-  <div>
+  <div id="projects">
     <AppCard>
       <div class="flex md:flex-row flex-col md:p-10 p-4 pb-0 overflow-hidden">
         <Animate scroll :creative-animation="animationImage">

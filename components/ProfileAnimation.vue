@@ -1,16 +1,37 @@
 <script setup lang="ts">
+import { useMobile } from '~/store/useMobile'
+import { useProfile } from '~/store/useProfile'
+
 const { $gsap } = useNuxtApp()
 
-const isMobile = useMediaQuery('(max-width: 768px)')
+const { isMobile } = useMobile()
+const useProfileStore = useProfile()
+const { showDesc, isAnimated } = storeToRefs(useProfileStore)
 
-const isExpanded = ref(false) // Track the current state of the animation
-const showDesc = ref(false)
+const stacks = ref([
+  'html.png',
+  'css.png',
+  'js.png',
+  'tailwind.png',
+  'nuxt.png',
+  'vue.png',
+  'pinia.png',
+  'vitest.png',
+  'typescript.png',
+  'react.png',
+  'pwa.png',
+  'illustrator.png',
+  'figma.png',
+  'mysql.png',
+  'laravel.png',
+])
 
 function animateCircle() {
+  isAnimated.value = true
   const tl = $gsap.timeline()
 
   // Start the circle with scale 0.1 and animate up with bounce
-  tl.from('#circle-main', {
+  tl.from('#profile', {
     y: '100%',
     opacity: 0,
     scale: 0.1, // Initial scale set to 0.1
@@ -18,26 +39,26 @@ function animateCircle() {
     duration: 1,
   })
   // Squash effect on bounce
-    .to('#circle-main', 0.2, {
+    .to('#profile', 0.2, {
       transformOrigin: '50% 100%',
       scaleY: 0.8,
       yoyo: true,
       repeat: 1,
     })
   // Simulate bounce by moving up and down
-    .to('#circle-main', 0.5, {
+    .to('#profile', 0.5, {
       y: -400,
       ease: 'power2.out',
       yoyo: true,
       repeat: 1,
     })
   // Another quick squash effect
-    .to('#circle-main', 0.2, {
+    .to('#profile', 0.2, {
       transformOrigin: '50% 100%',
       scaleY: 0.8,
     })
   // Scale the circle to its original size
-    .to('#circle-main', 0.5, {
+    .to('#profile', 0.5, {
       scale: 1, // Final scale to original size
       ease: 'power2.out',
     })
@@ -57,45 +78,10 @@ function animateCircle() {
     })
     .to('#circle-content', 0.2, {
       opacity: 1,
+      onComplete() {
+        isAnimated.value = false
+      },
     })
-}
-
-async function showDescription() {
-  const tl = $gsap.timeline()
-
-  showDesc.value = !showDesc.value
-
-  await nextTick()
-
-  if (!isExpanded.value) {
-    // Expand animation
-    tl.to('#circle-main', 1, {
-      x: isMobile.value ? '0%' : '-50%', // No horizontal shift on mobile
-      y: isMobile.value ? '-50%' : '-40%', // Move slightly upwards on mobile
-      scale: 0.5,
-      ease: 'power2.inOut',
-    })
-      .to('#description', 0.5, {
-        opacity: 1,
-        y: isMobile ? '-20%' : '50px',
-        ease: 'power2.out',
-      })
-  }
-  else {
-    // Reverse (contract) animation
-    tl.to('#description', 0.5, {
-      opacity: 0,
-      ease: 'power2.inOut',
-    })
-      .to('#circle-main', 1, {
-        x: '0%',
-        y: '0%',
-        scale: 1,
-        ease: 'power2.inOut',
-      })
-  }
-
-  isExpanded.value = !isExpanded.value // Toggle the state
 }
 
 onMounted(() => {
@@ -106,8 +92,8 @@ onMounted(() => {
 <template>
   <div class="relative">
     <div
-      id="circle-main"
-      class="relative w-full max-w-[52rem] mx-auto overflow-hidden rounded-full main-circle"
+      id="profile"
+      class="relative w-full max-w-[52rem] mx-auto overflow-hidden rounded-full main-circle z-[1]"
     >
       <div class="aspect-square relative overflow-hidden">
         <div
@@ -122,7 +108,7 @@ onMounted(() => {
               <p class="mt-2 text-xs mb-5">
                 See what's interesting about me
               </p>
-              <AppButton color="secondary" variant="accent" size="sm" @click="showDescription">
+              <AppButton color="secondary" :disabled="isAnimated" variant="accent" :size="isMobile ? 'sm' : 'md'" @click="useProfileStore.showDescription">
                 About Me
               </AppButton>
             </div>
@@ -149,7 +135,7 @@ onMounted(() => {
     <div
       v-if="showDesc"
       id="description"
-      class="text-left opacity-0 md:-z-10 leading-relaxed transform md:translate-y-full md:mt-5 md:absolute md:top-28 md:right-0 md:max-w-[60%]"
+      class="text-left opacity-0 md:z-[0] leading-relaxed transform md:translate-y-full md:mt-5 md:absolute md:top-36 md:right-0 md:max-w-[60%]"
     >
       <h3 class="md:text-3xl text-xl font-bold">
         Muhamad Adrian Seftiana
@@ -166,6 +152,11 @@ onMounted(() => {
       <p class="text-sm sm:text-base leading-relaxed">
         But the most important thing about it all is that I like helping people, but I need to be paid lol. I'm happy to be able to help with something I've never done before, and I'm able to do it thanks to that. That was a big payout for me. It's nice to see other people happy, stepping up to help when they need it.
       </p>
+      <div class="flex items-center md:gap-3 gap-2 flex-wrap mt-6">
+        <div v-for="stack in stacks" :key="stack" v-tooltip="stack.split('.')[0]" class="cursor-pointer hover:bg-slate-200 icon-stack md:w-[64px] md:h-[64px] w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+          <NuxtImg :src="`/images/${stack}`" :alt="stack.split('.')[0]" :placeholder="[20, 20, 75, 5]" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
