@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { rand } from '@vueuse/core'
 import type { AnimateScrollBehaviour, AnimationType, CreativeAnimation } from '~/types/animation'
 
 interface Props {
@@ -30,9 +29,6 @@ const { animate, splitText } = useGsapAnimations()
 const elements = ref<any>()
 
 onMounted(async () => {
-  // Wait for DOM rendering
-  await nextTick()
-
   const defaultSlot = slots.default?.()
   if (!defaultSlot)
     return
@@ -40,8 +36,8 @@ onMounted(async () => {
   // Populate `elements` with refs to the DOM nodes of the slot content
   elements.value = defaultSlot
     .map(item => item.el)
-    // .filter(el => el) // Filter out any undefined values
 
+  // If the animation type includes 'split-', add classes and split text
   if (animation.includes('split-')) {
     elements.value.forEach((el: any) => {
       el.classList.add('split')

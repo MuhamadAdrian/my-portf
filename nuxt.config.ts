@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   plugins: [
 
   ],
-  ssr: false,
+  // ssr: false,
 
   postcss: {
     plugins: {

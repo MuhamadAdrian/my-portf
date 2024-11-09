@@ -12,7 +12,7 @@ const animationImage = ref({
 </script>
 
 <template>
-  <Animate scroll animation="slide-up" :scroll-behaviour="{ start: 'top 80%' }">
+  <div>
     <AppCard>
       <div class="flex md:flex-row flex-col md:p-10 p-4 pb-0 overflow-hidden">
         <Animate scroll :creative-animation="animationImage">
@@ -56,5 +56,5 @@ const animationImage = ref({
         </div>
       </div>
     </AppCard>
-  </Animate>
+  </div>
 </template>
