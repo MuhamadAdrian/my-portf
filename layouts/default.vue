@@ -144,7 +144,6 @@ onMounted(() => {
   <main class="container mx-auto px-4 relative">
     <slot />
   </main>
-  <footer>footer</footer>
 </template>
 
 <style scoped lang="css">

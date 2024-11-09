@@ -24,12 +24,15 @@ const animationImage = ref({
           <div>
             <Animate scroll animation="split-word">
               <h3 class="font-bold md:text-2xl text-xl mb-4">
-                Title Project
+                E - commerce ( Freshgo.id )
               </h3>
             </Animate>
             <Animate scroll animation="split-line">
               <p class="mb-4 md:text-lg text-sm leading-relaxed">
-                survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                Build a front-end application for fruit ordering needs, good for companies and even partners (sales). This application can be installed because it has a PWA feature that makes it easier to access the website. Apart from that, also create an admin dashboard to manage sales, discounts and stock of goods
+              </p>
+              <p class="mb-4 md:text-lg text-sm leading-relaxed">
+                Orders are automatic and picked up immediately by the courier because they are integrated with the Lalamove API and also pay using Xendit
               </p>
             </Animate>
           </div>
@@ -50,6 +53,12 @@ const animationImage = ref({
               </div>
               <div class="bg-gradient-to-r from-[#AEC185] to-[#c7df93] rounded-full py-1 px-4 flex items-center justify-start">
                 Laravel
+              </div>
+              <div class="bg-gradient-to-r from-[#AEC185] to-[#c7df93] rounded-full py-1 px-4 flex items-center justify-start">
+                Google Maps API
+              </div>
+              <div class="bg-gradient-to-r from-[#AEC185] to-[#c7df93] rounded-full py-1 px-4 flex items-center justify-start">
+                Nuxt Auth
               </div>
             </Animate>
           </div>
