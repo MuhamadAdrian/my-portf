@@ -41,6 +41,8 @@ const highlightProjects = ref<HighlightProject[]>([
     </Animate>
     <HighlightProjectCard :data="highlightProjects[0]" />
   </section>
+
+  <ListProject />
 </template>
 
 <style scoped>
