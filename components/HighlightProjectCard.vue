@@ -17,7 +17,7 @@ const animationImage = ref({
       <div class="flex md:flex-row flex-col md:p-10 p-4 pb-0 overflow-hidden">
         <Animate scroll :creative-animation="animationImage">
           <div class="flex flex-shrink-0 items-center justify-center bg-gray-100 md:rounded-t-[2.7rem] rounded-[1.5rem] aspect-video md:w-1/2 w-full overflow-hidden">
-            <img src="~/public/images/portfolio-1.png" class="w-full h-full object-cover object-center hover:scale-110 transition-transform">
+            <img src="~/public/images/portfolio-1.png" class="w-full h-full object-cover object-center hover:scale-110 transition-transform" alt="project">
           </div>
         </Animate>
         <div class="flex flex-col justify-between md:w-1/2 w-full md:pl-8 md:mt-0 mt-4 text-white md:pb-0 pb-4">

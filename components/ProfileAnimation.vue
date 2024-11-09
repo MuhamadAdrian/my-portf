@@ -99,6 +99,7 @@ onMounted(() => {
         id="circle-img"
         src="/images/profile.png"
         class="absolute inset-0 w-[55%] opacity-0 h-[55%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full object-center"
+        alt="profile"
       />
     </div>
   </div>
