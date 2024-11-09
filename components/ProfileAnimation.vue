@@ -157,13 +157,13 @@ onMounted(() => {
       <p class="md:text-xl text-base mb-4 font-semibold">
         Frontend Developer
       </p>
-      <p class="mb-4 text-sm sm:text-base">
+      <p class="mb-4 text-sm sm:text-base leading-relaxed">
         I'm 22 years old now. And I'm a handyman who specializes in writing code haha. I can't mix cement but I can glue it together with Tailwind CSS, Vue, Nuxt and others to build a magnificent, luxurious and comfortable house.
       </p>
-      <p class="mb-4 text-sm sm:text-base">
+      <p class="mb-4 text-sm sm:text-base leading-relaxed">
         I like the interface which is not stiff, looks flowless and animated.
       </p>
-      <p class="text-sm sm:text-base">
+      <p class="text-sm sm:text-base leading-relaxed">
         But the most important thing about it all is that I like helping people, but I need to be paid lol. I'm happy to be able to help with something I've never done before, and I'm able to do it thanks to that. That was a big payout for me. It's nice to see other people happy, stepping up to help when they need it.
       </p>
     </div>
