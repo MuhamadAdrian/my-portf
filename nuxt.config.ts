@@ -3,12 +3,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: [
+    '@pinia/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     '@vueuse/nuxt',
     '@hypernym/nuxt-gsap',
     'floating-vue/nuxt',
-    '@pinia/nuxt',
   ],
   plugins: [
 
