@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/google-fonts',
     '@nuxt/image',
-    '@vueuse/nuxt',
     '@hypernym/nuxt-gsap',
     'floating-vue/nuxt',
   ],

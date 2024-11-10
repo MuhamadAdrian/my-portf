@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const img = useImage()
 
-const isMobile = useMediaQuery('(max-width: 768px)')
+const isMobile = useMedia('(max-width: 768px)')
 
 const projects = ref([
   {
