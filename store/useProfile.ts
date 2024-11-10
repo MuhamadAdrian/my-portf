@@ -8,7 +8,7 @@ export const useProfile = defineStore('profile', () => {
   const { $gsap } = useNuxtApp()
   const { isMobile } = useMobile()
 
-  async function showDescription() {
+  const showDescription = async () => {
     isAnimated.value = true
     const tl = $gsap.timeline()
 
