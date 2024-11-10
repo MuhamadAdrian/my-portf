@@ -1,9 +1,9 @@
 <script setup lang="ts">
-// import { useProfile } from '~/store/useProfile'
+import { useProfile } from '~/store/useProfile'
 
-// const useProfileStore = useProfile()
+const useProfileStore = useProfile()
 
-// const { isAnimated, isExpanded } = storeToRefs(useProfileStore)
+const { isAnimated, isExpanded } = storeToRefs(useProfileStore)
 
 const menuItems = useTemplateRef<HTMLAnchorElement[]>('menu-item')
 const menuIndicator = useTemplateRef('menu-indicator')
@@ -41,27 +41,27 @@ const links = ref([
 function handleClickProfile(to: string) {
   handleToSection(to)
 
-  // openProfile.value = true
+  openProfile.value = true
 
-  // if (!isAnimated.value)
-  //   useProfileStore.showDescription()
+  if (!isAnimated.value)
+    useProfileStore.showDescription()
 }
 
 const route = useRoute()
 
-// watch([() => route.hash, openProfile], ([val, isOpenProfile]) => {
-//   if (val === '#profile') {
-//     if (!isAnimated.value && isOpenProfile) {
-//       useProfileStore.showDescription()
-//       openProfile.value = false
-//     }
-//   }
-//   else {
-//     if (isExpanded.value) {
-//       useProfileStore.showDescription()
-//     }
-//   }
-// })
+watch([() => route.hash, openProfile], ([val, isOpenProfile]) => {
+  if (val === '#profile') {
+    if (!isAnimated.value && isOpenProfile) {
+      useProfileStore.showDescription()
+      openProfile.value = false
+    }
+  }
+  else {
+    if (isExpanded.value) {
+      useProfileStore.showDescription()
+    }
+  }
+})
 
 const idxActive = ref(0)
 
